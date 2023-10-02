@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Card Matching Game</title>
+    <style>
+        .card {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+            display: inline-block;
+            border: 2px solid #ccc;
+            text-align: center;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .highlight {
+            border: 2px solid blue;
+        }
+        .matched {
+            background-color: green;
+            color: white;
+            border: 2px solid green;
+            cursor: default;
+        }
+        .mismatched {
+            background-color: red;
+            color: white;
+            border: 2px solid red;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container"></div>
+    <script>
+        const binaryCards = ['0000', '0001', '0010', '0011', '0100', '0101', '0110', '0111', '1000', '1001', '1010', '1011', '1100', '1101', '1110', '1111'];
+        const hexCards = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+
+        // Shuffle the cards
+        shuffleArray(binaryCards);
+        shuffleArray(hexCards);
+
+        // Create the card pairs
+        const cardPairs = binaryCards.concat(hexCards);
+
+        let firstCard = null;
+        let lockBoard = false;
+
+        function createCard(cardValue) {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.textContent = cardValue;
+
+            card.addEventListener('click', () => {
+                if (lockBoard) return;
+                if (!firstCard) {
+                    firstCard = card;
+                    firstCard.classList.add('highlight');
+                } else {
+                    if (firstCard === card) {
+                        return;
+                    }
+                    if (cardValue === convertToHex(firstCard.textContent) || firstCard.textContent === convertToBinary(cardValue)) {
+                        firstCard.classList.remove('highlight');
+                        firstCard.classList.add('matched');
+                        card.classList.add('matched');
+                        firstCard = null;
+                    } else {
+                        firstCard.classList.add('mismatched');
+                        card.classList.add('mismatched');
+                        lockBoard = true;
+                        setTimeout(() => {
+                            firstCard.classList.remove('mismatched');
+                            card.classList.remove('mismatched');
+                            firstCard.classList.remove('highlight');
+                            card.classList.remove('highlight');
+                            firstCard = null;
+                            lockBoard = false;
+                        }, 1000);
+                    }
+                }
+            });
+
+            return card;
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function convertToHex(binaryValue) {
+            return parseInt(binaryValue, 2).toString(16).toUpperCase();
+        }
+
+        function convertToBinary(hexValue) {
+            return parseInt(hexValue, 16).toString(2).padStart(4, '0');
+        }
+
+        const gameContainer = document.getElementById('game-container');
+        cardPairs.forEach(cardValue => {
+            const card = createCard(cardValue);
+            gameContainer.appendChild(card);
+        });
+    </script>
+</body>
+</html>

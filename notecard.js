@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 let currentCard = 1; // Start with the first card
-let totalCards = 3; // Update this to the total number of cards in the slideshow view
+let totalCards = 16; // Update this to the total number of cards in the slideshow view
 
 function showGridView() {
     document.getElementById('gridView').style.display = 'grid';

@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Inconsolata:wght@500&family=Roboto+Mono:wght@300&family=Rubik&family=Rubik+Iso&display=swap');
+
+*{
+    font-family: 'Courier Prime', monospace;
+}
+
+#swap-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 60px;
+    transition: background-color 0.3s;
+}
+
+#swap-button:hover {
+    background-color: #0056b3;
+}
+
+
+.navbar {
+    position: fixed; /* Make the navbar fixed at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's above other elements */
+    background-color: #2c3e50;
+    overflow: hidden;
+    padding: 10px 20px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+    z-index: 2;
+    float: left;
+    display: block;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.navbar a.active {
+    background-color: #2980b9;
+    color: white;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+    width: 70vh;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 55px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.25);
+}
+
+#hex-display {
+    font-size: 10vw;
+    margin-bottom: 10px;
+}
+
+#binary-input {
+    transform:scale(1.1);
+    font-size: 26px;
+    width: 25vw;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #007bff; /* Default border color */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#binary-input.correct-input {
+    border-color: green;
+}
+
+.bit {
+    position: fixed; /* Updated from absolute to fixed */
+    width: 5px;
+    height: 5px;
+    right: 25px;
+    background-color: #007bff;
+    border-radius: 50%;
+    transition: transform 2s ease-out, opacity 2s ease-out;
+}
+
+
+
+
+
+.incorrect-input {
+    border-color: red;
+    animation: shake 0.5s;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Existing CSS styles... */
+
+#combo-counter {
+    font-size: 3vw;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 20px;
+    transition: opacity 0.5s; /* Add a smooth fade-in effect */
+}
+
+
+#check-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/*... [previous CSS code] ...*/
+
+/* Modified shake keyframes to smoother effect */
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+/* Add animations for correct and incorrect feedback */
+@keyframes flashRed {
+    from, to { background-color: transparent; }
+    50% { background-color: red; }
+}
+
+@keyframes flashGreen {
+    from, to { background-color: transparent; }
+    50% { background-color: green; }
+}
+
+/* ... [Previous CSS code] ... */
+
+/* Adding specificity for input animations */
+#binary-input.correct {
+    animation: flashGreen 0.5s linear;
+    border-color: green; /* Ensures border remains green post-animation */
+}
+
+#binary-input.incorrect {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both, flashRed 0.5s linear;
+    border-color: red; /* Ensures border remains red post-animation */
+}
+
+/*... [Rest of your CSS code] ...*/
+

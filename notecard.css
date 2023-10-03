@@ -10,6 +10,83 @@ body {
     margin: 0;
     padding-top: 60px; /* Space for the navbar */
 }
+.view-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    margin-bottom: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 80px; /* Increase the width for a larger switch */
+    height: 40px; /* Increase the height for a larger switch */
+    margin: 0 auto; /* Center horizontally */
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.gridslide{
+
+}
+
+
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50px; /* Make it round */
+}
+.slider svg {
+    position: absolute;
+    top: 50%; /* Vertically center the SVG */
+    right: .9em; /* Adjust the right position for spacing */
+    transform: translateY(-50%); /* Vertically center the SVG */
+    fill: #fff; /* Set the SVG fill color */
+    width: 20px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+}
+.singleslide{
+    left: .9em;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 34px; /* Adjust the height of the slider knob */
+    width: 34px; /* Adjust the width of the slider knob */
+    left: 3px; /* Adjust the left position for centering */
+    bottom: 3px; /* Adjust the bottom position for centering */
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%; /* Make it round */
+}
+
+/* Add your custom colors for the switch */
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(40px); /* Adjust for the larger width */
+    -ms-transform: translateX(40px); /* Adjust for the larger width */
+    transform: translateX(40px); /* Adjust for the larger width */
+}
+
+
 
 .view-selector {
     padding-top: 20px;

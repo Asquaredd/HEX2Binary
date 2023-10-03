@@ -1,23 +1,45 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // ... (rest of your code)
+// Add event listener to the slider for toggling the view
+document.getElementById("toggle-switch").addEventListener("change", toggleView);// Function to show grid view
 
-    // Initialize views
-    showGridView();
-});
+
+
+
+function showGridView() {
+    document.getElementById("gridView").style.display = "grid";
+    document.getElementById("slideshow-view").style.display = "none";
+}
+
+// Function to show single view
+// Function to show single view
+function showSlideshow() {
+    document.getElementById("gridView").style.display = "none";
+    var slideshowView = document.getElementById("slideshow-view");
+    slideshowView.style.display = "block";
+
+    // Ensure that the first card is displayed initially
+    var cards = slideshowView.getElementsByClassName("card");
+    for (var i = 0; i < cards.length; i++) {
+        if (i === 0) {
+            cards[i].style.display = "block";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+
+
+// Function to toggle between grid view and single view using the slider
+function toggleView() {
+    var slider = document.getElementById("toggle-switch");
+    if (slider.checked) {
+        showSlideshow(); // Show single view
+    } else {
+        showGridView(); // Show grid view
+    }
+}
 
 let currentCard = 1; // Start with the first card
 let totalCards = 16; // Update this to the total number of cards in the slideshow view
-
-function showGridView() {
-    document.getElementById('gridView').style.display = 'grid';
-    document.getElementById('slideshow-view').style.display = 'none';
-}
-
-function showSlideshow() {
-    document.getElementById('gridView').style.display = 'none';
-    document.getElementById('slideshow-view').style.display = 'block';
-    showCard(currentCard); // Show the first card initially
-}
 
 function showCard(cardNumber) {
     // Hide all cards except the specified one
@@ -40,3 +62,4 @@ function nextCard() {
     currentCard = Math.min(totalCards, currentCard + 1); // Don't go above totalCards
     showCard(currentCard);
 }
+

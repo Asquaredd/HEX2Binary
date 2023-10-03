@@ -20,11 +20,10 @@ function showSlideshow() {
 }
 
 function showCard(cardNumber) {
-    // Hide all cards
+    // Hide all cards except the specified one
     document.querySelectorAll('.slideshow-view .card').forEach(card => {
         card.style.display = 'none';
     });
-    // Show the specified card
     document.getElementById('card' + cardNumber).style.display = 'block';
 
     // Enable/disable navigation buttons
@@ -41,4 +40,3 @@ function nextCard() {
     currentCard = Math.min(totalCards, currentCard + 1); // Don't go above totalCards
     showCard(currentCard);
 }
-

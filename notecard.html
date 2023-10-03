@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notecard Webapp</title>
+    <link rel="stylesheet" href="notecard.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="notecard.html">Notecards</a>
+        <a href="index.html">Matching Game</a>
+        <a href="#about">About</a>
+    </div>
+    <div class="view-selector">
+        <button onclick="showGridView()">Grid View</button>
+        <button onclick="showSlideshow()">Single View</button>
+    </div>
+    <div class="cards-container" id="gridView">
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">0</div>
+                <div class="card-back">0000</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">1</div>
+                <div class="card-back">0001</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">2</div>
+                <div class="card-back">0010</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">3</div>
+                <div class="card-back">0011</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">4</div>
+                <div class="card-back">0100</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">5</div>
+                <div class="card-back">0101</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">6</div>
+                <div class="card-back">0110</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">7</div>
+                <div class="card-back">0111</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">8</div>
+                <div class="card-back">1000</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">9</div>
+                <div class="card-back">1001</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">A</div>
+                <div class="card-back">1010</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">B</div>
+                <div class="card-back">1011</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">C</div>
+                <div class="card-back">1100</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">D</div>
+                <div class="card-back">1101</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">E</div>
+                <div class="card-back">1110</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">F</div>
+                <div class="card-back">1111</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="slideshow-view" id="slideshow-view">
+    <div class ="single-card-container">    
+        <!-- Display cards in a slideshow manner here -->
+        <div class="card" id="card1">
+            <div class="card-inner">
+                <div class="card-front">F</div>
+                <div class="card-back">1111</div>
+            </div>
+        </div>
+        <div class="card" id="card2">
+            <div class="card-inner">
+                <div class="card-front">E</div>
+                <div class="card-back">1110</div>
+            </div>
+        </div>
+        <div class="card" id="card3">
+            <div class="card-inner">
+                <div class="card-front">D</div>
+                <div class="card-back">1101</div>
+            </div>
+        </div>
+        <!-- Add more cards as needed -->
+        <button onclick="prevCard()">Previous</button>
+        <button onclick="nextCard()">Next</button>
+    </div>
+    </div>
+    
+    <script src="notecard.js"></script>
+</body>
+</html>

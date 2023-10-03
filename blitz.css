@@ -173,5 +173,29 @@ body {
     border-color: red; /* Ensures border remains red post-animation */
 }
 
-/*... [Rest of your CSS code] ...*/
+@media (max-width: 768px) {
+    .container {
+        width: 80%;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(52, 152, 219, 0.25);
+    }
 
+    #binary-input {
+        width: 75%;
+    }
+
+    #hex-display {
+        font-size: 10vw;
+    }
+
+    #combo-counter {
+        font-size: 10vw;
+    }
+
+
+    border: 1px solid #007bff; 
+    border-radius: 8px;
+
+    /* Add more responsive adjustments as needed */
+}
